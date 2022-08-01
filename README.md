@@ -29,4 +29,78 @@ if(!micro.isHunam()){...} // 권장!
 
 - 코드는 대칭성 있게 작성하라! 서로 다른 관심사는 분리하고 같은 관심사끼리 묶어라!
 
+<hr>
+
+## 2장 : 코드 스타일 레벨 업
+
+- 매직 넘버(그냥 숫자)를 상수((static) final)로 대체하라! 각 숫자마다 유의미하고 이해하기 쉬운 이름을 달아라!! 더 나아가 정수, 상수 대신 열거형(enum)을 선택하라!
+
 <br>
+
+- 변수명 명명 규칙 for(타입 단수명 : 복수명)!
+
+<br>
+
+- 순회할 때 컬렉션을 수정하지 마라! 어차피 ConcurrentModificationException이 발생한다! 단일 쓰레드 애플리케이션에서 동시(concurrency)실행이라니 큰일난다!
+```java
+// 큰일난다!!
+
+class Inventory{
+
+  private List<Supply> supplies = new ArrayList<>();
+  
+  void disposeContaminatedSupplies(){
+    for(Supply supply : supplies){
+      if(supply.isContaminated()){
+        supplies.remove(supply);
+      }
+    }
+  }
+}
+
+```
+
+<br>
+
+```java
+// 좋다!
+
+class Inventory{
+
+  private List<Supply> supplies = new ArrayList<>();
+  
+  void disposeContaminatedSupplies(){
+    Iterator<Supply> iterator = supplies.iterator();
+    
+    while(iterator.hasNext()){
+      if(iterator.next().isContaminated()){
+        iterator.remove();
+      }
+    }
+  }
+}
+
+```
+
+<br>
+
+- 순회하면서 계산 집약적 연산하지 마라! 최대한 할 수 있는 계산은 미리 끝내고 순회하라!
+
+- 문자열이 많다면 이어붙이기 대신 서식화를 하라! String.format을 사용하라!! String 레이아웃(String을 어떻게 출력할지)와 데이터(무엇을 출력할지)를 분리하는 것이다!
+```java
+String entry = author.toUpperCase() + "[" + .... + "]" + "(TODOTODO " + .... --> 요딴식 X
+
+String entry = String.format("%s : ["%d : %d] %s%n", author, me, my, mo, ..) --> 레이아웃과 데이터를 분리하라!
+
+```
+
+<br>
+
+- JAVA API를 사용하라! Object, Collections의 유틸리티 클래스인 Objects, Collections 처럼 유용한 클래스가 많다!
+
+
+
+
+
+
+
