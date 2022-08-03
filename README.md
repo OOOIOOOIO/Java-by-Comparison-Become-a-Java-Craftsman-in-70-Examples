@@ -1,4 +1,5 @@
-# [책]똑똑하게 코딩하는 법, 자바 코딩의 기술(현장에서 뽑은 70가지 예제로 배우는 코드 잘 짜는 법)
+# [책] 똑똑하게 코딩하는 법, 자바 코딩의 기술(현장에서 뽑은 70가지 예제로 배우는 코드 잘 짜는 법, 사이먼 하러, 요르그 레너드, 리누스 디에츠)
+##(Java by Comparison Become a Java Craftsman in 70 Examples, Simon Harrer, Jorg Lenhard, Linus Dietz)
 
 ## 1장 : 우선 정리부터
 - 불 반환값과 불 원시 타입(true, false)를 병시적으로 비교하는 건 초보자 코드에서 종종 발견되는 안티 패턴이다.
