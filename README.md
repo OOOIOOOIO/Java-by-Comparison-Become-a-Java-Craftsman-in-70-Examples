@@ -99,9 +99,12 @@ String entry = String.format("%s : ["%d : %d] %s%n", author, me, my, mo, ..) -->
 
 - JAVA API를 사용하라! Object, Collections의 유틸리티 클래스인 Objects, Collections 처럼 유용한 클래스가 많다!
 
+<hr>
 
+## 3장
 
+- 지나치게 많은 주석은 자제하라. 자바 코드 규칙에서 정한 클래스 구조에 따를 경우 불필요한 이정표는 넣을 필요 없다. 필요한 주석은 코드만 보아서는 드러나지 않는 정보이다!
 
-
+- 주석 처리된 코드는 과감하게 삭제! 어차피 다시 찾지 않는다.
 
 
